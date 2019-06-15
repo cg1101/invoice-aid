@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { InvoiceAidApiService } from '../invoice-aid-api.service';
+import { Customer } from '../models';
 
 @Component({
   selector: 'app-customer-list',
@@ -7,9 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerListComponent implements OnInit {
 
-  constructor() { }
+  customers$: Observable<Customer[]> = this.api.getCustomers();
 
-  ngOnInit() {
-  }
+  constructor(protected api: InvoiceAidApiService) { }
+
+  ngOnInit() { }
 
 }

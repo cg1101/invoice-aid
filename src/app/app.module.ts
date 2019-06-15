@@ -14,7 +14,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { InsurerListComponent } from './insurer-list/insurer-list.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { TherapistListComponent } from './therapist-list/therapist-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BackendMockService } from './backend-mock.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     NoopAnimationsModule,
     MatGridListModule,
@@ -40,7 +43,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BackendMockService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

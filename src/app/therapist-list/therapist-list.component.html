@@ -1,1 +1,5 @@
 <h1>Therapists</h1>
+
+<div *ngFor="let therapist of therapists$ | async; let i=index">
+  {{i+1}} {{therapist | json}}
+</div>

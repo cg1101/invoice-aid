@@ -1,3 +1,5 @@
-<h1>
-  Insurers
-</h1>
+<h1>Insurers</h1>
+
+<div *ngFor="let insurer of insurers$ | async; let i=index">
+  {{i+1}} {{insurer | json}}
+</div>

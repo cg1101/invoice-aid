@@ -12,14 +12,14 @@ export class InvoiceAidApiService {
   constructor(protected http: HttpClient) { }
 
   getCustomers(): Observable<Customer[]> {
-    return this.http.get<Customer[]>('/');
+    return this.http.get<Customer[]>('/customers');
   }
 
   getTherapists(): Observable<Therapist[]> {
-    return this.http.get<Therapist[]>('/');
+    return this.http.get<Therapist[]>('/therapists');
   }
 
   getInsurers(): Observable<Insurer[]> {
-    return this.http.get<Insurer[]>('/');
+    return this.http.get<Insurer[]>('/insurers');
   }
 }
