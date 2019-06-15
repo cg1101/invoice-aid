@@ -7,7 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {
   MatGridListModule, MatCardModule, MatMenuModule, MatIconModule,
-  MatButtonModule, MatToolbarModule, MatSidenavModule, MatListModule
+  MatButtonModule, MatToolbarModule, MatSidenavModule, MatListModule, MatDialogModule, MatFormFieldModule, MatInputModule
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -17,6 +17,8 @@ import { TherapistListComponent } from './therapist-list/therapist-list.componen
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BackendMockService } from './backend-mock.service';
 import { CommonModule } from '@angular/common';
+import { AddInsurerDialogComponent } from './add-insurer-dialog/add-insurer-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,17 +27,23 @@ import { CommonModule } from '@angular/common';
     NavigationComponent,
     InsurerListComponent,
     CustomerListComponent,
-    TherapistListComponent
+    TherapistListComponent,
+    AddInsurerDialogComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NoopAnimationsModule,
     MatGridListModule,
     MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
     MatMenuModule,
     MatIconModule,
+    MatInputModule,
     MatToolbarModule,
     MatButtonModule,
     LayoutModule,
@@ -50,6 +58,7 @@ import { CommonModule } from '@angular/common';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddInsurerDialogComponent]
 })
 export class AppModule { }
