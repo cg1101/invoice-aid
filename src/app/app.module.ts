@@ -14,6 +14,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { InsurerListComponent } from './insurer-list/insurer-list.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { TherapistListComponent } from './therapist-list/therapist-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TherapistListComponent } from './therapist-list/therapist-list.componen
     MatButtonModule,
     LayoutModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
