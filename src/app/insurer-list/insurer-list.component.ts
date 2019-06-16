@@ -35,11 +35,13 @@ export class InsurerListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log('Dialog returns->', result);
-      this.api.createInsurer({ insurerName: result })
-        .subscribe(newInsurer => {
-          console.log('createInsurer->', newInsurer);
-          this.insurers.push(newInsurer);
-        });
+      if (result) {
+        this.api.createInsurer({ insurerName: result })
+          .subscribe(newInsurer => {
+            console.log('createInsurer->', newInsurer);
+            this.insurers.push(newInsurer);
+          });
+      }
     });
   }
 }

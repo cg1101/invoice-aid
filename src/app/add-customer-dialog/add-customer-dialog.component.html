@@ -2,10 +2,12 @@
 <div mat-dialog-content>
   <p>Please input Customer's details:</p>
   <mat-form-field>
-    <input matInput [(ngModel)]="data.familyName">
+    <!-- <label mat-label>Family Name</label> -->
+    <input matInput placeholder="Family Name" [(ngModel)]="data.familyName">
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="data.givenName">
+    <!-- <label mat-label>Given Name</label> -->
+    <input matInput placeholder="Given Name" [(ngModel)]="data.givenName">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

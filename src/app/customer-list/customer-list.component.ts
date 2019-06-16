@@ -37,11 +37,13 @@ export class CustomerListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(newCustomerData => {
       console.log('The dialog was closed');
       console.log('Dialog returns->', newCustomerData);
-      this.api.createCustomer(newCustomerData)
-        .subscribe(newCustomer => {
-          console.log('createInsurer->', newCustomer);
-          this.customers.push(newCustomer);
-        });
+      if (newCustomerData) {
+        this.api.createCustomer(newCustomerData)
+          .subscribe(newCustomer => {
+            console.log('createInsurer->', newCustomer);
+            this.customers.push(newCustomer);
+          });
+      }
     });
   }
 }
