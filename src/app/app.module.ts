@@ -19,6 +19,7 @@ import { BackendMockService } from './backend-mock.service';
 import { CommonModule } from '@angular/common';
 import { AddInsurerDialogComponent } from './add-insurer-dialog/add-insurer-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddCustomerDialogComponent } from './add-customer-dialog/add-customer-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InsurerListComponent,
     CustomerListComponent,
     TherapistListComponent,
-    AddInsurerDialogComponent
+    AddInsurerDialogComponent,
+    AddCustomerDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddInsurerDialogComponent]
+  entryComponents: [
+    AddCustomerDialogComponent,
+    AddInsurerDialogComponent
+  ]
 })
 export class AppModule { }

@@ -63,14 +63,30 @@ export class BackendMockService implements HttpInterceptor {
     const { url } = req;
     console.log(`interceptor -> `, url);
     let body;
+    console.log(`url matched->`, url);
     if (url.match(/^\/customers/)) {
-      body = [...this.customers];
-      return of(new HttpResponse<Customer[]>({
-        status: 200,
-        body
-      }));
+      if (req.method === 'GET') {
+        body = [...this.customers];
+        return of(new HttpResponse<Customer[]>({
+          status: 200,
+          body
+        }));
+      } else if (req.method === 'POST') {
+        const newCustomer = {
+          customerId: this.customers.length + 1,
+          familyName: req.body.familyName,
+          givenName: req.body.givenName,
+          dateOfBirth: req.body.dateOfBirth,
+          phone: req.body.phone,
+        };
+        this.customers.push(newCustomer);
+        body = newCustomer;
+        return of(new HttpResponse<Customer>({
+          status: 200,
+          body
+        }));
+      }
     } else if (url.match(/^\/insurers/)) {
-      console.log(`url matched->`, url);
       if (req.method === 'GET') {
         body = [...this.insurers];
         return of(new HttpResponse<Insurer[]>({

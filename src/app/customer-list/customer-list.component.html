@@ -1,5 +1,7 @@
 <h1>Customers</h1>
 
-<div *ngFor="let customer of customers$ | async; let i=index">
+<button mat-raised-button (click)="openDialog()">Add Customer</button>
+<hr>
+<div *ngFor="let customer of customers; let i=index">
   {{i+1}} {{customer | json}}
 </div>

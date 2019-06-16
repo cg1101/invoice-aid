@@ -13,6 +13,7 @@ export class AddInsurerDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+    console.log('input used names->', this.data.usedNames);
   }
 
   onNoClick(): void {

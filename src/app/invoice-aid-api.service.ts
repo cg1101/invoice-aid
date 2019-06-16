@@ -28,4 +28,10 @@ export class InvoiceAidApiService {
     console.log(`creating insurer using input->`, input);
     return this.http.post<Insurer>('/insurers', { insurerName });
   }
+
+  createCustomer(input: any): Observable<Customer> {
+    const { familyName, givenName, dateOfBirth, phone } = input;
+    console.log(`creating customer using input->`, input);
+    return this.http.post<Customer>('/customers', { familyName, givenName, dateOfBirth, phone });
+  }
 }
