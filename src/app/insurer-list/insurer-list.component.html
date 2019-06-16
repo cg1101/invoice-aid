@@ -2,6 +2,6 @@
 
 <button mat-raised-button (click)="openDialog()">Add Insurer</button>
 <hr>
-<div *ngFor="let insurer of insurers$ | async; let i=index">
+<div *ngFor="let insurer of insurers; let i=index">
   {{i+1}} {{insurer | json}}
 </div>

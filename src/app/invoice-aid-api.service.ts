@@ -22,4 +22,10 @@ export class InvoiceAidApiService {
   getInsurers(): Observable<Insurer[]> {
     return this.http.get<Insurer[]>('/insurers');
   }
+
+  createInsurer(input: any): Observable<Insurer> {
+    const { insurerName } = input;
+    console.log(`creating insurer using input->`, input);
+    return this.http.post<Insurer>('/insurers', { insurerName });
+  }
 }
