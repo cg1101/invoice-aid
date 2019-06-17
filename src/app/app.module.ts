@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
 import { AddInsurerDialogComponent } from './add-insurer-dialog/add-insurer-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddCustomerDialogComponent } from './add-customer-dialog/add-customer-dialog.component';
+import { AddTherapistDialogComponent } from './add-therapist-dialog/add-therapist-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AddCustomerDialogComponent } from './add-customer-dialog/add-customer-d
     CustomerListComponent,
     TherapistListComponent,
     AddInsurerDialogComponent,
-    AddCustomerDialogComponent
+    AddCustomerDialogComponent,
+    AddTherapistDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { AddCustomerDialogComponent } from './add-customer-dialog/add-customer-d
   bootstrap: [AppComponent],
   entryComponents: [
     AddCustomerDialogComponent,
-    AddInsurerDialogComponent
+    AddInsurerDialogComponent,
+    AddTherapistDialogComponent,
   ]
 })
 export class AppModule { }
