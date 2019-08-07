@@ -21,6 +21,7 @@ import { AddInsurerDialogComponent } from './add-insurer-dialog/add-insurer-dial
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddCustomerDialogComponent } from './add-customer-dialog/add-customer-dialog.component';
 import { AddTherapistDialogComponent } from './add-therapist-dialog/add-therapist-dialog.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AddTherapistDialogComponent } from './add-therapist-dialog/add-therapis
     TherapistListComponent,
     AddInsurerDialogComponent,
     AddCustomerDialogComponent,
-    AddTherapistDialogComponent
+    AddTherapistDialogComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

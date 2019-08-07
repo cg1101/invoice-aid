@@ -4,6 +4,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { TherapistListComponent } from './therapist-list/therapist-list.component';
 import { InsurerListComponent } from './insurer-list/insurer-list.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'insurers',
     component: InsurerListComponent
+  },
+  {
+    path: 'calendar',
+    component: CalendarComponent
   },
   {
     path: '*',
