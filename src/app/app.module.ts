@@ -6,8 +6,22 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {
-  MatGridListModule, MatCardModule, MatMenuModule, MatIconModule,
-  MatButtonModule, MatToolbarModule, MatSidenavModule, MatListModule, MatDialogModule, MatFormFieldModule, MatInputModule
+  MatGridListModule,
+  MatCardModule,
+  MatMenuModule,
+  MatIconModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTableModule,
+  MatExpansionModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatCheckboxModule,
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -51,7 +65,12 @@ import { AddCustomerDialogComponent } from './add-customer-dialog/add-customer-d
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    HttpClientModule
+    MatTableModule,
+    MatExpansionModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCheckboxModule,
+    HttpClientModule,
   ],
   providers: [
     {
