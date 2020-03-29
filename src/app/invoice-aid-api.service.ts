@@ -34,4 +34,10 @@ export class InvoiceAidApiService {
     console.log(`creating customer using input->`, input);
     return this.http.post<Customer>('/customers', { familyName, givenName, dateOfBirth, phone });
   }
+
+  createTherapist(input: any): Observable<Therapist> {
+    const { familyName, givenName } = input;
+    console.log(`creating therapist using input->`, input);
+    return this.http.post<Therapist>('/therapists', { ...input });
+  }
 }

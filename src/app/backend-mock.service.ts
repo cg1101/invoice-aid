@@ -56,7 +56,6 @@ export class BackendMockService implements HttpInterceptor {
     },
   ];
 
-
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -106,11 +105,25 @@ export class BackendMockService implements HttpInterceptor {
         }));
       }
     } else if (url.match(/^\/therapists/)) {
-      body = [...this.therapists];
-      return of(new HttpResponse<Therapist[]>({
-        status: 200,
-        body
-      }));
+      if (req.method === 'GET') {
+        body = [...this.therapists];
+        return of(new HttpResponse<Therapist[]>({
+          status: 200,
+          body
+        }));
+      } else if (req.method === 'POST') {
+        const newTherapist = {
+          therapistId: this.therapists.length + 1,
+          familyName: req.body.familyName,
+          givenName: req.body.givenName,
+        };
+        this.therapists.push(newTherapist);
+        body = newTherapist;
+        return of(new HttpResponse<Therapist>({
+          status: 200,
+          body
+        }));
+      }
     }
     return next.handle(req);
   }

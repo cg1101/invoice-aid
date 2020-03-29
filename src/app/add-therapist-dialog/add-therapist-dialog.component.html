@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Add Therapist</h1>
+<div mat-dialog-content>
+  <p>Please input therapist's name:</p>
+  <mat-form-field>
+    <input matInput placeholder="Family Name" [(ngModel)]="data.familyName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Given Name" [(ngModel)]="data.givenName">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>OK</button>
+</div>

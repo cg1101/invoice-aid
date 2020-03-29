@@ -4,6 +4,8 @@ import { InvoiceAidApiService } from '../invoice-aid-api.service';
 import { Observable } from 'rxjs';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MatDialog } from '@angular/material';
+import { AddTherapistDialogComponent } from '../add-therapist-dialog/add-therapist-dialog.component';
 
 export interface PeriodicElement {
   name: string;
@@ -54,7 +56,7 @@ const ELEMENT_DATA2: PeriodicElement[] = [
 })
 export class TherapistListComponent implements OnInit {
 
-  therapists$: Observable<Therapist[]> = this.api.getTherapists();
+  therapists: Therapist[] = [];
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   displayedColumns2: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
@@ -65,9 +67,12 @@ export class TherapistListComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   selection = new SelectionModel<PeriodicElement>(true, []);
 
-  constructor(protected api: InvoiceAidApiService) { }
+  constructor(protected api: InvoiceAidApiService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.api.getTherapists().subscribe(therapists => {
+      this.therapists = therapists;
+    });
     this.dataSource2.paginator = this.paginator;
     this.dataSource2.sort = this.sort;
   }
@@ -93,5 +98,27 @@ export class TherapistListComponent implements OnInit {
 
   getTotalWeight() {
     return 125;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddTherapistDialogComponent, {
+      width: '250px',
+      data: {
+        familyName: '',
+        givenName: ''
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log('Dialog returns->', result);
+      if (result) {
+        this.api.createTherapist({ ...result })
+          .subscribe(newTherapist => {
+            console.log('createTherapist->', newTherapist);
+            this.therapists.push(newTherapist);
+          });
+      }
+    });
   }
 }
