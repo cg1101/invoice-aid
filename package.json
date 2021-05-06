@@ -14,7 +14,7 @@
     "@angular/animations": "~8.0.0",
     "@angular/cdk": "~11.2.11",
     "@angular/common": "~11.2.13",
-    "@angular/compiler": "~11.2.12",
+    "@angular/compiler": "~11.2.13",
     "@angular/core": "~8.0.0",
     "@angular/forms": "~8.0.0",
     "@angular/material": "^11.2.11",
